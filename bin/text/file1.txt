@@ -1,0 +1,1 @@
+My <%COLOR1%> <%PEN_TYPE%> pen filled with <%COLOR2%> ink. - file1.txt

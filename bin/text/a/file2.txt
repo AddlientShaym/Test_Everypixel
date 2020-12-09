@@ -1,0 +1,1 @@
+<%NAME%> bought a <%COLOR1%> <%ITEM%>. - file2.txt
