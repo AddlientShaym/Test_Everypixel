@@ -8,7 +8,12 @@ namespace fs = std::filesystem;
 int main(){
 	Config::loadFromFile("./config.cfg");
 	
-	Replacer::replaceInAllFiles(Config::root, Config::templates, Config::threadscount);
+	try{
+		Replacer::replaceInAllFiles(Config::root, Config::templates, Config::threadscount);
+	}catch(runtime_error e){
+		cout << e.what();
+		return 1;
+	}
 	
 	cout << "Work is done." << endl;
 	

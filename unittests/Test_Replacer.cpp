@@ -94,7 +94,13 @@ void Test_Replacer::test_replaceInAllFiles(){
 	vrm.push_back(replacement("<%COLOR%>", "black"));
 	vrm.push_back(replacement("<%PEN_TYPE%>", "fountain"));
 	
-	Replacer::replaceInAllFiles("./text", vrm, 4);
+	try {
+		Replacer::replaceInAllFiles("./text", vrm, 4);
+	}catch(runtime_error e){
+		cout << e.what();
+		fs::remove_all("./text");
+		return;
+	}
 	
 	cout << "Content in directory after:" << endl;
 	for(size_t i = 0; i<fileslist.size(); i++){

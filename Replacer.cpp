@@ -58,6 +58,10 @@ void Replacer::replaceInAllFiles(const fs::path& root, const vector<replacement>
 }
 
 void Replacer::replaceInAllFiles(const fs::path& root, const vector<replacement>& vrm, unsigned int thr_count){
+	if (!thr_count) {
+		throw runtime_error("No threads");
+	}
+	
 	vector<thread> threads;
 	threads.clear();
 	
